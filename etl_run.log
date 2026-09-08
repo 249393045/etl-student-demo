@@ -1,0 +1,132 @@
+2026-09-08 14:38:48,308 - ERROR - ETL程序发生异常：DataFrame.__init__() got an unexpected keyword argument 'row'
+Traceback (most recent call last):
+  File "C:\Users\wx217\Desktop\学习\新建文件夹\study\test.py", line 120, in main
+    generate_raw_csv()
+  File "C:\Users\wx217\Desktop\学习\新建文件夹\study\test.py", line 27, in generate_raw_csv
+    df_raw = pd.DataFrame(row=raw_data)
+TypeError: DataFrame.__init__() got an unexpected keyword argument 'row'
+2026-09-08 14:38:48,309 - INFO - 数据库连接已关闭
+2026-09-08 14:40:17,338 - INFO - 步骤1完成：生成原始脏数据 raw_student.csv
+2026-09-08 14:40:17,340 - INFO - 步骤2完成： 数据处理完毕
+2026-09-08 14:40:17,344 - INFO - 
+  name   age  score  class_id level
+0   张三  20.0   95.0         1     A
+1   李四  21.0   -5.0         1     D
+2   王五  21.4   72.0         2     C
+3   赵六  22.0   88.0         2     B
+4   孙七  23.0    0.0         3     D
+5   周八  21.0   66.0         3     C
+2026-09-08 14:40:17,530 - ERROR - ETL程序发生异常：(1050, "Table 'etl_class' already exists")
+Traceback (most recent call last):
+  File "C:\Users\wx217\Desktop\学习\新建文件夹\study\test.py", line 130, in main
+    init_mysql_table(cursor)
+  File "C:\Users\wx217\Desktop\学习\新建文件夹\study\test.py", line 52, in init_mysql_table
+    cursor.execute(create_class_sql)
+  File "C:\Users\wx217\Desktop\学习\新建文件夹\study\.venv\lib\site-packages\pymysql\cursors.py", line 159, in execute
+    result = self._query(query)
+  File "C:\Users\wx217\Desktop\学习\新建文件夹\study\.venv\lib\site-packages\pymysql\cursors.py", line 330, in _query
+    conn.query(q)
+  File "C:\Users\wx217\Desktop\学习\新建文件夹\study\.venv\lib\site-packages\pymysql\connections.py", line 582, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\wx217\Desktop\学习\新建文件夹\study\.venv\lib\site-packages\pymysql\connections.py", line 847, in _read_query_result
+    result.read()
+  File "C:\Users\wx217\Desktop\学习\新建文件夹\study\.venv\lib\site-packages\pymysql\connections.py", line 1245, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\wx217\Desktop\学习\新建文件夹\study\.venv\lib\site-packages\pymysql\connections.py", line 803, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\wx217\Desktop\学习\新建文件夹\study\.venv\lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\wx217\Desktop\学习\新建文件夹\study\.venv\lib\site-packages\pymysql\err.py", line 154, in raise_mysql_exception
+    raise errorclass(errno, errval, sqlstate=sqlstate)
+pymysql.err.OperationalError: (1050, "Table 'etl_class' already exists")
+2026-09-08 14:40:17,535 - INFO - 数据库连接已关闭
+2026-09-08 14:41:53,233 - INFO - 步骤1完成：生成原始脏数据 raw_student.csv
+2026-09-08 14:41:53,235 - INFO - 步骤2完成： 数据处理完毕
+2026-09-08 14:41:53,239 - INFO - 
+  name   age  score  class_id level
+0   张三  20.0   95.0         1     A
+1   李四  21.0   -5.0         1     D
+2   王五  21.4   72.0         2     C
+3   赵六  22.0   88.0         2     B
+4   孙七  23.0    0.0         3     D
+5   周八  21.0   66.0         3     C
+2026-09-08 14:41:53,330 - INFO - 步骤3完成：MySQL建表完成
+2026-09-08 14:41:53,335 - INFO - 步骤4成功：清洗后的数据入库完成
+2026-09-08 14:41:53,361 - INFO - 完成JOIN班级统计报表
+2026-09-08 14:41:53,364 - INFO - 
+  class_name  avg_score  max_score
+0         一班       45.0         95
+1         二班       80.0         88
+2         三班       33.0         66
+2026-09-08 14:41:53,365 - INFO - 报表导出,至 class_score.csv
+2026-09-08 14:41:53,511 - INFO - 图表保存 class_avg_score.png
+2026-09-08 14:41:53,515 - INFO - 
+几个学生班级统计
+2026-09-08 14:41:53,518 - INFO - 
+  class_name  avg_score  max_score
+0         一班       95.0         95
+1         二班       80.0         88
+2         三班       66.0         66
+2026-09-08 14:41:53,520 - INFO - 已导出 pass_class_report.csv
+2026-09-08 14:41:53,520 - INFO - 全部ETL流程执行成功！
+2026-09-08 14:41:53,520 - INFO - 数据库连接已关闭
+2026-09-08 14:44:29,522 - INFO - 步骤1完成：生成原始脏数据 raw_student.csv
+2026-09-08 14:44:29,525 - INFO - 步骤2完成： 数据处理完毕
+2026-09-08 14:44:29,530 - INFO - 
+  name   age  score  class_id level
+0   张三  20.0   95.0         1     A
+1   李四  21.0    0.0         1     D
+2   王五  21.4   72.0         2     C
+3   赵六  22.0   88.0         2     B
+4   孙七  23.0    0.0         3     D
+5   周八  21.0   66.0         3     C
+2026-09-08 14:44:29,597 - INFO - 步骤3完成：MySQL建表完成
+2026-09-08 14:44:29,601 - INFO - 步骤4成功：清洗后的数据入库完成
+2026-09-08 14:44:29,608 - INFO - 完成JOIN班级统计报表
+2026-09-08 14:44:29,612 - INFO - 
+  class_name  avg_score  max_score
+0         一班       47.5         95
+1         二班       80.0         88
+2         三班       33.0         66
+2026-09-08 14:44:29,613 - INFO - 报表导出,至 class_score.csv
+2026-09-08 14:44:29,729 - INFO - 图表保存 class_avg_score.png
+2026-09-08 14:44:29,734 - INFO - 
+几个学生班级统计
+2026-09-08 14:44:29,737 - INFO - 
+  class_name  avg_score  max_score
+0         一班       95.0         95
+1         二班       80.0         88
+2         三班       66.0         66
+2026-09-08 14:44:29,740 - INFO - 已导出 pass_class_report.csv
+2026-09-08 14:44:29,740 - INFO - 全部ETL流程执行成功！
+2026-09-08 14:44:29,740 - INFO - 数据库连接已关闭
+2026-09-08 14:49:18,931 - INFO - 步骤1完成：生成原始脏数据 raw_student.csv
+2026-09-08 14:49:18,934 - INFO - 步骤2完成： 数据处理完毕
+2026-09-08 14:49:18,937 - INFO - 
+  name   age  score  class_id level
+0   张三  20.0   95.0         1     A
+1   李四  21.0    0.0         1     D
+2   王五  21.4   72.0         2     C
+3   赵六  22.0   88.0         2     B
+4   孙七  23.0    0.0         3     D
+5   周八  21.0   66.0         3     C
+2026-09-08 14:49:19,006 - INFO - 步骤3完成：MySQL建表完成
+2026-09-08 14:49:19,010 - INFO - 步骤4成功：清洗后的数据入库完成
+2026-09-08 14:49:19,017 - INFO - 完成JOIN班级统计报表
+2026-09-08 14:49:19,019 - INFO - 
+  class_name  avg_score  max_score
+0         一班       47.5         95
+1         二班       80.0         88
+2         三班       33.0         66
+2026-09-08 14:49:19,021 - INFO - 报表导出,至 class_score.csv
+2026-09-08 14:49:19,127 - INFO - 图表保存 class_avg_score.png
+2026-09-08 14:49:19,131 - INFO - 
+几个学生班级统计
+2026-09-08 14:49:19,133 - INFO - 
+  class_name  avg_score  max_score
+0         一班       95.0         95
+1         二班       80.0         88
+2         三班       66.0         66
+2026-09-08 14:49:19,134 - INFO - 已导出 pass_class_report.csv
+2026-09-08 14:49:19,134 - INFO - 全部ETL流程执行成功！
+2026-09-08 14:49:19,134 - INFO - 数据库连接已关闭
