@@ -1,6 +1,16 @@
+# Python虚拟环境
 .venv/
+venv/
+
+# Python缓存
 __pycache__/
 *.pyc
-*.log
-*.png
+
+# ETL运行输出产物
 *.csv
+*.png
+*.log
+
+# IDE配置
+.idea/
+.vscode/
